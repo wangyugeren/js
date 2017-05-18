@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取非行间样式</title>
+	<style type="text/css">
+		#box {
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+		}
+
+		#box::after {
+			color: #fff;
+			content:"你好";
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<p>
+		window.getComputedStyle(element) //返回的是只读对象，不能修改
+
+		如需修改样式，使用element.style
+	</p>
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+		// console.log(box.style.width, "打印");
+		var s = getComputedStyle(box);
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var person = {
+			name: "Shafee",
+			say: function() {
+				alert("hello " + this.name);
+			}
+		};
+		person.say();
+
+		var name = "Tom";
+
+		person.say.call(window);//改变this指向并且调用
+
+		function foo(a) {
+			alert(this.name + "say hello " + a);
+		}
+		foo("AA");
+		foo.call(person, "AA");
+		
+	</script>
+</body>
+</html>

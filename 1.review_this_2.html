@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>this</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var name = "Tom";
+		var person = {
+			name: "Shafee",
+			age: 20,
+			say: function() {
+				setTimeout(function() {
+					alert(this.name);
+				}.bind(this), 5000)
+			}
+		};
+		person.say();
+	</script>
+</body>
+</html>

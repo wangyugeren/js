@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击返回顶部</title>
+	<style type="text/css">
+		#goTop {
+			color: #fff;
+			position: fixed;
+			right: 50px;
+			bottom: 50px;
+			width: 50px;
+			height: 50px;
+			background-color: blue;
+		}
+		body {
+			height: 2000px;
+		}
+	</style>
+</head>
+<body>
+	<a id="goTop" href="javascript:void(0);">返回顶部</a>
+	<script type="text/javascript">
+		var goTop = document.getElementById("goTop");
+
+		var timer = 0;
+		goTop.onclick  = function() {
+			var start = document.documentElement.scrollTop || document.body.scrollTop;
+			var end = 0;
+			var change = end - start;
+			var t = 0;
+			var maxT = 30;
+			clearInterval(timer);
+			timer = setInterval(function() {
+				t++;
+				if(t >= maxT) {
+					clearInterval(timer);
+				}
+				document.body.scrollTop = change/maxT * t + start;
+				document.documentElement.scrollTop = change/maxT * t + start;
+			}, 17)
+		}
+	</script>
+</body>
+</html>
